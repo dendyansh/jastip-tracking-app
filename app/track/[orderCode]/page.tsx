@@ -1,10 +1,10 @@
 import { supabase } from "@/lib/supabase";
-import { 
-  ClipboardList, 
-  ShoppingBag, 
-  Truck, 
-  PackageCheck, 
-  CheckCircle2, 
+import {
+  ClipboardList,
+  ShoppingBag,
+  Truck,
+  PackageCheck,
+  CheckCircle2,
   ArrowLeft,
   MessageCircle,
   Package
@@ -41,7 +41,7 @@ export default async function TrackOrderPage({ params }: { params: { orderCode: 
           </div>
           <h1 className="text-2xl font-bold text-slate-800 mb-2">Pesanan Tidak Ditemukan</h1>
           <p className="text-slate-500 mb-6">Kode pesanan "{orderCode}" tidak valid atau belum terdaftar di sistem kami.</p>
-          <Link 
+          <Link
             href="/"
             className="inline-flex items-center justify-center w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-6 rounded-xl transition-all"
           >
@@ -54,16 +54,16 @@ export default async function TrackOrderPage({ params }: { params: { orderCode: 
   }
 
   const currentStatusIndex = STATUS_STEPS.findIndex(step => step.id === order.status);
-  
+
   // Format WA Message
-  const adminPhone = "6281234567890"; // Ganti dengan nomor WA Admin yang sesungguhnya
+  const adminPhone = "6281939601378"; // Ganti dengan nomor WA Admin yang sesungguhnya
   const waMessage = encodeURIComponent(`Halo Admin Jastip, saya ingin menanyakan status pesanan saya dengan kode *${order.order_code}*.\n\nNama Barang: ${order.item_name}`);
   const waLink = `https://wa.me/${adminPhone}?text=${waMessage}`;
 
   return (
     <main className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans">
       <div className="max-w-2xl mx-auto space-y-6">
-        
+
         {/* Header Navigation */}
         <Link href="/" className="inline-flex items-center text-slate-500 hover:text-indigo-600 transition-colors font-medium">
           <ArrowLeft className="w-5 h-5 mr-2" />
@@ -105,7 +105,7 @@ export default async function TrackOrderPage({ params }: { params: { orderCode: 
         {/* Timeline Status Card */}
         <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-100">
           <h2 className="text-lg font-bold text-slate-900 mb-8">Status Perjalanan</h2>
-          
+
           <div className="relative pl-4 md:pl-0">
             <div className="space-y-8">
               {STATUS_STEPS.map((step, index) => {
@@ -120,7 +120,7 @@ export default async function TrackOrderPage({ params }: { params: { orderCode: 
                     {!isLast && (
                       <div className={`absolute top-10 left-6 md:left-[2.1rem] -ml-px h-full w-0.5 transition-colors duration-300 ${isActive ? 'bg-indigo-500' : 'bg-slate-200'}`} aria-hidden="true" />
                     )}
-                    
+
                     {/* Icon Container */}
                     <div className="relative z-10 flex-shrink-0">
                       <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 ${isActive ? 'bg-indigo-500 border-indigo-100' : 'bg-white border-slate-200'}`}>

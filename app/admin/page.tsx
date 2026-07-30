@@ -139,7 +139,7 @@ export default function AdminDashboard() {
 
     if (error) {
       console.error("Error creating order:", error);
-      showToast("Gagal membuat pesanan baru", "error");
+      showToast(`Gagal: ${error.message}`, "error");
     } else {
       showToast(`Pesanan ${order_code} berhasil dibuat!`, "success");
       setIsModalOpen(false);
